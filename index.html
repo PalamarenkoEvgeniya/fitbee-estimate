@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#862c4f">
+  <meta name="description" content="Расчёт стоимости FITBEE: AI-каталог, имиджевые фотографии и видео. Настройте объём проекта и сохраните расчёт.">
+  <title>FITBEE — расчёт стоимости</title>
+  <style>
+@charset "UTF-8";
+:root{--paper:#f7f5f1;--ink:#252426;--muted:#716d6d;--accent:#862c4f;--line:#dcd7d2;--white:#fff;--pale:#eee8e9;--font:"Segoe UI",Arial,sans-serif;--display:"Arial Narrow","Bahnschrift Condensed","Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:5px}button:disabled{cursor:default;opacity:.3}.wrap{width:min(1280px,calc(100% - 112px));margin-inline:auto}.skip{position:absolute;top:-100px;left:20px;padding:12px;background:var(--white);z-index:30}.skip:focus{top:12px}.header{display:flex;align-items:center;justify-content:space-between;height:104px;border-bottom:1px solid var(--line);gap:24px}.wordmark{font-family:var(--display);font-size:32px;line-height:1;font-weight:900;letter-spacing:-1.8px;display:inline-flex;align-items:baseline;gap:5px}.wordmark-dot{height:7px;width:7px;display:inline-block;background:var(--accent);border-radius:50%}.header-caption{font-size:12px;color:var(--muted);letter-spacing:1.3px;text-transform:uppercase}.nav-link{font-size:13px;border-bottom:1px solid var(--ink);padding-block:6px}.nav-link span{margin-left:18px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:80px;padding-block:88px 94px;align-items:center}.eyebrow{font-size:11px;line-height:1.5;letter-spacing:1.5px;font-weight:600;text-transform:uppercase;margin:0 0 25px}.hero .eyebrow{display:flex;align-items:center;gap:12px}.small-line{width:30px;height:2px;background:var(--accent);display:inline-block}h1,h2,h3,p{margin-top:0}h1{font-family:var(--display);font-size:clamp(64px,7.3vw,105px);font-weight:650;line-height:.99;letter-spacing:-5px;margin-bottom:32px}h1 span{color:var(--accent)}.hero-copy{max-width:480px;font-size:17px;line-height:1.7;color:var(--muted);margin-bottom:33px}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:32px;min-height:54px;padding:15px 22px;border:0;font-size:13px;font-weight:600;transition:background .18s,color .18s}.primary{background:var(--accent);color:#fff}.primary:hover{background:#6d2140}.project-note{border-left:1px solid var(--line);padding-left:44px;align-self:stretch;display:flex;flex-direction:column;justify-content:center}.note-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:30px}.note-title{font-size:clamp(24px,2.4vw,34px);line-height:1.25;letter-spacing:-1px;margin-bottom:33px}.hero-facts{margin:0}.hero-facts div{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:14px 0}.hero-facts dt{font-size:12px;color:var(--muted)}.hero-facts dd{margin:0;font-size:14px;white-space:nowrap;font-weight:600}.note-foot{font-size:11px;color:var(--muted);margin:18px 0 0;max-width:260px}.section-rule{border-top:1px solid var(--ink);display:flex;justify-content:space-between;padding-top:13px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}.section-rule span:first-child{color:var(--ink)}.estimate{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:56px;padding-block:74px 108px;align-items:start}h2{font-family:var(--display);font-size:clamp(38px,4.2vw,59px);line-height:1.08;letter-spacing:-2px;font-weight:600;margin-bottom:24px}.section-intro{font-size:14px;color:var(--muted);max-width:480px;margin-bottom:38px}.price-list{border-top:1px solid var(--line)}.list-head,.price-row,.preparation-row{display:grid;grid-template-columns:minmax(0,1fr) 114px 104px;gap:20px;align-items:center}.list-head{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:13px 0;border-bottom:1px solid var(--line)}.list-head span:last-child{text-align:right}.price-row{padding:26px 0;border-bottom:1px solid var(--line)}.material h3,.preparation-row h3{font-size:16px;font-weight:600;letter-spacing:-.25px;line-height:1.4;margin:0 0 6px}.material p,.preparation-row p{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 10px;max-width:250px}.unit-price{font-size:12px;color:var(--accent);font-weight:600;white-space:nowrap}.duration{display:block;font-size:11px;font-weight:400;line-height:1.6;color:var(--muted)}.stepper{display:flex;align-items:center;height:38px;border:1px solid var(--line);width:114px;background:rgba(255,255,255,.5)}.stepper button{border:0;background:none;width:30px;flex-shrink:0;height:36px;color:var(--ink);font-size:18px}.stepper button:not(:disabled):hover{background:var(--pale)}.stepper input{min-width:0;width:52px;text-align:center;border:0;background:transparent;appearance:textfield;-moz-appearance:textfield;font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink);padding:0}.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.row-total{font-size:15px;font-weight:600;white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}.preparation-row{padding:25px 0;border-bottom:1px solid var(--line)}.preparation-row h3{font-size:14px}.preparation-row p{margin:0}.fixed-label{font-size:10px;color:var(--muted)}.preparation-row strong{text-align:right;font-size:15px;white-space:nowrap}.platforms{border:0;margin:33px 0 0;padding:0;min-width:0}.platforms legend{font-size:14px;font-weight:600;margin-bottom:16px}.platform-option{display:flex;align-items:center;gap:13px;border:1px solid var(--line);padding:17px 16px;cursor:pointer;margin-bottom:9px;background:rgba(255,255,255,.35)}.platform-option.selected{border-color:var(--accent);background:var(--pale)}.platform-option input{accent-color:var(--accent);width:16px;height:16px;margin:0;flex-shrink:0}.platform-option span{flex:1;min-width:0}.platform-option strong{display:block;font-size:12px;font-weight:600;line-height:1.5}.platform-option small{display:block;font-size:10px;color:var(--muted);margin-top:3px}.platform-option b{font-size:12px;font-weight:600;white-space:nowrap}.small-copy{font-size:11px;line-height:1.65;color:var(--muted);max-width:550px;margin:15px 0 0}.summary{position:sticky;top:24px;background:var(--accent);color:#fff;padding:29px 27px 22px}.summary-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:28px}.summary-heading .eyebrow{margin:0;font-size:9px}.live-mark{font-size:9px;color:#e2becd}.summary h3{font-size:26px;font-weight:500;line-height:1.25;letter-spacing:-.6px;margin-bottom:29px}.summary-lines{margin:0}.summary-lines div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px}.summary-lines dt{font-size:12px;color:#e4c7d2}.summary-lines dd{font-size:13px;font-weight:500;margin:0;white-space:nowrap;font-variant-numeric:tabular-nums}.summary-divider{border-top:1px solid rgba(255,255,255,.23);margin:24px 0}.grand-total{margin-top:25px;border-top:1px solid rgba(255,255,255,.23);padding-top:22px}.grand-total span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#e4c7d2;display:block}.grand-total output{font-size:42px;line-height:1.3;font-weight:400;letter-spacing:-1.6px;display:block;margin-top:7px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.summary-note{font-size:10px;color:#e4c7d2;line-height:1.6;margin:13px 0 23px}.print-button{background:var(--paper);color:var(--accent);width:100%;font-size:12px;gap:10px}.print-button:hover{background:#fff}.reset-button{display:block;width:100%;background:none;border:0;color:#efdfe6;font-size:11px;padding:15px 0 7px}.reset-button:hover{text-decoration:underline}.print-help{font-size:9px;color:#dfbdcb;text-align:center;line-height:1.6;margin:12px 0 0}.print-count,.print-platform{display:none}.scope{padding-bottom:100px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:36px}.section-heading h2{margin-bottom:0}.text-button{background:none;border:0;border-bottom:1px solid var(--line);padding:10px 0;font-size:11px;white-space:nowrap}.text-button span{font-size:18px;margin-left:18px}.scope-list,.terms-details{border-top:1px solid var(--ink)}details{border-bottom:1px solid var(--line)}summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;padding:23px 0;font-size:16px;line-height:1.5;font-weight:500}summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:23px;font-weight:300;margin-left:auto;color:var(--accent);width:18px;text-align:center;flex-shrink:0}details[open]>summary:after{content:'−'}summary>span:first-child{flex:1}.detail-price{font-size:12px;font-weight:400;color:var(--muted);white-space:nowrap}.detail-body{font-size:13px;line-height:1.8;color:var(--muted);max-width:800px;padding:0 55px 24px 0}.detail-body p:last-child{margin-bottom:0}ul{padding-left:18px;margin:0 0 18px}li{padding-left:3px;margin-bottom:6px}summary em{font-style:normal;font-size:11px;color:var(--muted);margin-left:15px;font-weight:400}.process-section{background:#ece8e3;padding:75px 0 65px}.process-header{display:flex;align-items:flex-end;justify-content:space-between;gap:50px;margin-bottom:45px}.process-header h2{margin:0}.project-duration{border-left:2px solid var(--accent);padding-left:22px}.project-duration strong{display:block;font-size:26px;font-weight:500;letter-spacing:-.8px;margin-bottom:8px}.project-duration span{font-size:11px;line-height:1.7;color:var(--muted)}.process-flow{display:grid;grid-template-columns:1fr 2fr;gap:24px}.parallel-phases{display:grid;grid-template-columns:1fr 1fr;gap:24px}.phase{border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column}.prep-phase{border-top-color:var(--accent)}.phase-label{font-size:10px;letter-spacing:.5px;color:var(--accent);margin-bottom:22px}.phase h3{font-size:19px;line-height:1.35;letter-spacing:-.5px;font-weight:500;margin-bottom:13px}.phase p{font-size:12px;color:var(--muted);line-height:1.8;flex:1;margin-bottom:24px;max-width:300px}.phase-outcome{font-size:10px;font-weight:600}.process-foot{font-size:11px;line-height:1.8;color:var(--muted);margin:35px 0 0;max-width:760px}.terms{padding-block:90px 30px}.heading-note{font-size:13px;color:var(--muted);line-height:1.8;max-width:310px;margin:0}.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:75px;border-top:1px solid var(--ink);padding-top:30px;margin-bottom:38px}.terms-grid h3{font-size:18px;font-weight:500;margin-bottom:18px}.terms-grid ul{font-size:13px;line-height:1.85;color:var(--muted)}.terms-details{border-top-color:var(--line)}.terms-details summary{font-size:14px;padding-block:20px}.closing{padding-block:67px 75px;display:flex;justify-content:space-between;gap:30px;align-items:center}.closing p{font-size:30px;line-height:1.3;letter-spacing:-.8px;margin:0}.closing p span{color:var(--muted)}.footer{border-top:1px solid var(--line);padding-block:25px 35px;display:flex;align-items:center;gap:30px}.footer .wordmark{font-size:25px}.footer p{font-size:10px;color:var(--muted);margin:0}.footer>span{font-size:9px;color:var(--muted);margin-left:auto}.notice{border:1px solid var(--accent);padding:15px;font-size:13px}.summary-note[hidden]{display:none}
+@media(min-width:1500px){.hero{padding-block:104px 112px}}
+@media(max-width:1100px){.wrap{width:calc(100% - 64px)}.hero{gap:40px}.project-note{padding-left:30px}h1{letter-spacing:-3.5px}.estimate{grid-template-columns:minmax(0,1fr) 300px;gap:30px}.summary{padding:25px 21px}.grand-total output{font-size:35px}.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 104px;gap:13px}.list-head span:last-child{display:none}.stepper{grid-column:2;grid-row:1 / span 2;width:104px}.stepper input{width:42px}.material{grid-column:1}.row-total{grid-column:1;text-align:left;font-size:14px}.price-row{position:relative;padding-block:22px}.fixed-label{display:none}.preparation-row strong{grid-column:2}.material p{max-width:230px}.material h3{font-size:15px}.platform-option{padding:14px 12px;gap:10px}.platform-option small{font-size:9px}.process-flow{grid-template-columns:1fr 2fr}.terms-grid{gap:40px}}
+@media(max-width:800px){.wrap{width:calc(100% - 40px)}.header{height:80px;gap:15px}.header-caption{display:none}.nav-link{font-size:11px}.wordmark{font-size:29px}.hero{grid-template-columns:1fr;gap:45px;padding-block:55px 55px}h1{font-size:clamp(62px,12vw,90px);letter-spacing:-3px}.hero-copy{font-size:15px;max-width:480px}.project-note{padding-left:20px;border-left:2px solid var(--accent);display:grid;grid-template-columns:1fr 1.2fr;gap:14px 30px}.note-label{grid-column:1 / -1;margin:0}.note-title{font-size:24px;grid-column:1;margin:0}.hero-facts{grid-column:2;grid-row:2 / span 2}.hero-facts dt{font-size:10px}.hero-facts dd{font-size:11px}.hero-facts div{padding:9px 0}.note-foot{grid-column:1;margin:0;font-size:10px}.section-rule{font-size:8px;letter-spacing:1px}.estimate{grid-template-columns:1fr;padding-block:48px 65px;gap:30px}.summary{position:static;padding:28px}.summary-heading{margin-bottom:20px}.summary h3{font-size:27px}.grand-total output{font-size:48px}.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 114px 104px;gap:16px}.list-head span:last-child{display:block}.stepper{grid-column:auto;grid-row:auto;width:114px}.stepper input{width:52px}.material,.row-total{grid-column:auto}.row-total{text-align:right}.preparation-row strong{grid-column:3}.fixed-label{display:block}.material h3{font-size:16px}.platform-option strong{font-size:13px}.platform-option small{font-size:10px}.scope{padding-bottom:65px}.section-heading{align-items:start;flex-direction:column;gap:20px}.section-heading h2{font-size:39px}.text-button{align-self:flex-start}.process-section{padding-block:53px 45px}.process-header{align-items:start;gap:30px}.process-header h2{font-size:38px}.project-duration{padding-left:17px}.project-duration strong{font-size:23px;white-space:nowrap}.project-duration span{font-size:10px}.process-flow{grid-template-columns:1fr;gap:30px}.parallel-phases{gap:25px}.prep-phase p{max-width:550px}.phase-label{margin-bottom:16px}.phase h3{font-size:19px}.terms{padding-top:60px}.terms-grid{gap:25px}.heading-note{max-width:450px}.closing{padding-block:45px 55px}.closing p{font-size:25px}.footer{flex-wrap:wrap;gap:15px 25px}.footer>span{width:100%;margin:0}.detail-body{padding-right:15px}}
+@media(max-width:480px){.hero .eyebrow{font-size:9px;letter-spacing:1px}.hero{padding-top:42px}.project-note{gap:12px 15px;padding-left:15px;grid-template-columns:.9fr 1.1fr}.note-title{font-size:20px;letter-spacing:-.5px}.hero-facts div{gap:8px}.hero-facts dd{font-size:10px}.hero-facts dt{font-size:9px}.note-label{font-size:9px}.note-foot{font-size:9px}.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 108px;gap:12px}.list-head span:last-child{display:none}.stepper{grid-column:2;grid-row:1 / span 2;width:108px}.stepper input{width:46px}.material{grid-column:1}.material h3{font-size:14px}.material p{font-size:10px}.row-total{grid-column:1;text-align:left;font-size:15px}.price-row{padding-block:21px}.preparation-row strong{grid-column:2}.fixed-label{display:none}.platform-option strong{font-size:11px}.platform-option small{font-size:9px}.platform-option b{font-size:11px}.platform-option{gap:10px;padding:15px 12px}.grand-total output{font-size:44px}.summary{padding:25px}.detail-price{font-size:10px}.scope-list summary{font-size:14px;flex-wrap:wrap;gap:6px 12px;position:relative;padding-right:26px}.scope-list summary>span:first-child{flex-basis:100%}.scope-list summary:after{position:absolute;right:0;top:25px}.detail-price{display:block}summary em{display:block;margin:3px 0 0}.process-header{flex-direction:column}.project-duration{padding-left:15px}.parallel-phases{grid-template-columns:1fr}.phase p{max-width:100%;margin-bottom:15px}.terms-grid{grid-template-columns:1fr;gap:15px}.terms-grid article+article{border-top:1px solid var(--line);padding-top:25px}.closing{flex-direction:column;align-items:flex-start;gap:25px}.footer p{font-size:9px}.hero-copy{line-height:1.75}.print-help{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{
+  @page{size:A4;margin:15mm 14mm}html{scroll-behavior:auto}body{background:white;color:#222;font-size:10pt;line-height:1.5;print-color-adjust:exact;-webkit-print-color-adjust:exact}.wrap{width:100%;max-width:none}.header{height:auto;padding-bottom:6mm;border-color:#bbb}.header-caption{display:block;font-size:8pt;letter-spacing:.5px}.wordmark{font-size:22pt}.nav-link,.skip,.hero .button,.section-rule,.text-button,.print-button,.reset-button,.print-help,.closing,.footer,.small-line,.live-mark{display:none!important}.hero{display:block;padding:7mm 0 4mm}.hero .eyebrow{display:none}h1{font-size:32pt;line-height:1.05;letter-spacing:-1.5px;margin-bottom:4mm}h1 br{display:none}h1 span{margin-left:5px}.hero-copy{font-size:9pt;line-height:1.5;max-width:100%;margin-bottom:4mm}.project-note{padding:0;border:0;display:block}.note-label,.note-title,.note-foot{display:none}.hero-facts{display:flex;gap:8mm;margin:0}.hero-facts div{display:block;border:0;padding:0}.hero-facts dt{font-size:7pt}.hero-facts dd{font-size:9pt;margin:1mm 0 0}.estimate{display:block;padding:5mm 0 0}.estimate-main>.eyebrow{display:none}h2{font-size:22pt;line-height:1.12;letter-spacing:-.7px;margin-bottom:3mm}h2 br{display:none}.section-intro{font-size:8pt;max-width:100%;margin-bottom:4mm}.list-head,.price-row,.preparation-row{display:grid;grid-template-columns:minmax(0,1fr) 22mm 29mm;gap:4mm}.list-head{padding:2mm 0;font-size:7pt}.list-head span:last-child{display:block}.price-row{padding:3mm 0;break-inside:avoid}.material{grid-column:auto}.material h3{font-size:10pt;margin-bottom:1mm}.material p{font-size:7pt;max-width:none;margin:0 0 1mm}.unit-price{font-size:8pt}.duration{display:inline;font-size:8pt;margin-left:3mm}.stepper{grid-column:auto;grid-row:auto;border:0;background:none;width:auto;height:auto;justify-content:center}.stepper button,.stepper input{display:none}.print-count{display:block;font-size:10pt}.row-total{grid-column:auto;font-size:10pt;text-align:right}.preparation-row{padding:3mm 0;break-inside:avoid}.preparation-row h3{font-size:10pt}.preparation-row p{font-size:7pt;max-width:none}.fixed-label{display:block;font-size:7pt}.preparation-row strong{grid-column:auto;font-size:10pt}.platforms{margin:4mm 0 0;break-inside:avoid}.platforms legend{font-size:9pt;margin-bottom:2mm}.platform-option:not(.selected){display:none}.platform-option{padding:2mm 3mm;margin:0;border-color:#bbb;background:transparent}.platform-option input{display:none}.platform-option strong{font-size:8pt}.platform-option small{font-size:7pt}.platform-option b{font-size:8pt}.small-copy{font-size:7pt;max-width:none;margin:2mm 0}.summary{position:static;display:block;padding:4mm;margin-top:4mm;background:#f0edef;color:#222;break-inside:avoid}.summary-heading,.summary h3,.summary-lines:not(.cost-lines),.summary-divider{display:none}.summary-lines div{margin:0 0 1.5mm}.summary-lines dt{font-size:8pt;color:#555}.summary-lines dd{font-size:9pt}.grand-total{padding-top:2mm;margin-top:2mm;border-top:1px solid #ccc;display:flex;align-items:baseline;justify-content:space-between}.grand-total span{font-size:8pt;color:#333}.grand-total output{font-size:26pt;line-height:1.2;letter-spacing:-1px;margin:0}.summary-note{color:#555;font-size:7pt;margin:2mm 0 0}.print-platform{display:none}.scope{padding:0;break-before:page}.section-heading{display:block;margin-bottom:4mm}.section-heading .eyebrow{font-size:7pt;margin-bottom:2mm}.section-heading h2{font-size:22pt}.scope-list,.terms-details{border-top:1px solid #555}details{break-inside:avoid}summary,.scope-list summary,.terms-details summary{font-size:11pt;padding:3mm 0;display:flex;flex-wrap:nowrap;position:static;cursor:default;gap:4mm}.scope-list summary>span:first-child{flex:1;flex-basis:auto}summary:after,.scope-list summary:after{display:none}.detail-price{font-size:8pt;color:#555;display:inline}.detail-body{display:block!important;font-size:9pt;line-height:1.6;max-width:none;padding:0 0 3mm;color:#444}.detail-body p{margin-bottom:2mm}.detail-body ul{margin-bottom:2mm}li{margin-bottom:1mm}summary em{display:inline;margin-left:3mm;font-size:8pt}.process-section{background:white;padding:5mm 0;break-before:page}.process-header{display:flex;align-items:start;gap:6mm;margin-bottom:5mm}.process-header .eyebrow{font-size:7pt;margin-bottom:2mm}.process-header h2{font-size:22pt}.project-duration{padding-left:4mm;flex-shrink:0}.project-duration strong{font-size:15pt}.project-duration span{font-size:8pt}.process-flow{display:grid;grid-template-columns:1fr;gap:5mm}.parallel-phases{display:grid;grid-template-columns:1fr 1fr;gap:6mm}.phase{padding-top:3mm}.phase-label{font-size:8pt;margin-bottom:2mm}.phase h3{font-size:12pt;margin-bottom:2mm}.phase p{font-size:9pt;max-width:none;margin-bottom:3mm}.phase-outcome{font-size:8pt}.process-foot{font-size:8pt;margin-top:4mm;max-width:none}.terms{padding:5mm 0 0;break-before:page}.terms .heading-note{font-size:9pt;max-width:none;margin-top:3mm}.terms-grid{display:block;padding-top:4mm;margin-bottom:4mm}.terms-grid article{break-inside:avoid}.terms-grid article+article{border:0;padding-top:3mm}.terms-grid h3{font-size:11pt;margin-bottom:2mm}.terms-grid ul{font-size:9pt;line-height:1.6;margin-bottom:3mm}.notice{display:none}
+}
+
+/* Cost estimate: direct copy and clearly editable quantities. */
+.hero{display:block;padding-block:50px 30px}.hero h1{font-size:clamp(42px,5vw,68px);letter-spacing:-2.5px;margin-bottom:22px}.hero-copy{max-width:760px;font-size:15px;margin-bottom:0}.hero .eyebrow{margin-bottom:18px}.estimate{padding-top:30px}.estimate h2{font-size:32px;letter-spacing:-1px}.stepper{border:2px solid var(--accent);background:#fff;height:46px;box-shadow:0 2px 0 rgba(134,44,79,.08)}.stepper input{font-size:17px;font-weight:650;height:42px;background:#fff}.stepper button{height:42px;background:var(--pale);color:var(--accent)}.list-head{letter-spacing:.3px}.summary h3{font-size:24px}.summary-items div{margin-bottom:17px}.summary-items dt{color:#fff}.summary-items small{display:block;font-size:10px;color:#e4c7d2;margin-top:3px}.disclosure-help{font-size:13px;color:var(--muted);margin:15px 0 0}.disclosure-cue{font-size:11px;color:var(--accent);white-space:nowrap;border-bottom:1px dotted var(--accent)}details[open]>summary .disclosure-cue{font-size:0}details[open]>summary .disclosure-cue:before{content:'Свернуть';font-size:11px}.scope-list summary{background:rgba(255,255,255,.32);padding-left:14px;padding-right:14px}.scope-list .detail-body{padding-left:14px}.closing p{font-size:16px;letter-spacing:0}.process-header h2,.terms h2,.scope h2{font-size:clamp(30px,3.5vw,46px)}
+@media(max-width:480px){.hero{padding-block:32px 20px}.hero h1{font-size:44px;letter-spacing:-2px}.hero-copy{font-size:13px}.estimate{padding-top:25px}.estimate h2{font-size:29px}.scope-list summary{padding-right:38px}.scope-list summary:after{right:12px}.scope-list .disclosure-cue{position:absolute;right:38px;bottom:24px}.terms-details summary{flex-wrap:wrap;gap:8px}.terms-details summary>span:first-child{flex-basis:100%}.terms-details summary:after{display:none}.summary-items dd{font-size:13px}}
+@media print{.hero{padding:6mm 0 3mm}.hero h1{font-size:28pt}.hero-copy{font-size:9pt}.estimate{padding-top:3mm}.estimate h2{font-size:20pt}.stepper{border:0;background:none;box-shadow:none;height:auto}.disclosure-help,.disclosure-cue{display:none!important}.summary .summary-items{display:block}.summary-items dt{color:#444;font-size:8pt}.summary-items small{display:inline;color:#555;font-size:7pt;margin-left:2mm}.summary-items div{margin-bottom:2mm}.summary-items dd{font-size:9pt}.scope-list summary{background:none;padding-left:0;padding-right:0}.scope-list .detail-body{padding-left:0}.process-header h2,.terms h2,.scope h2{font-size:22pt}}
+
+/* Touch targets and mobile form ergonomics. */
+@media screen{.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 138px 104px}.stepper{width:138px;min-height:48px}.stepper button{width:44px;height:44px}.stepper input{width:46px;height:44px;font-size:17px}.platform-option{min-height:60px}.text-button{min-height:44px}}
+@media screen and (max-width:1100px){.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 138px}}
+@media screen and (min-width:481px) and (max-width:800px){.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 138px 104px}}
+@media screen and (max-width:480px){.list-head,.price-row,.preparation-row{grid-template-columns:minmax(0,1fr) 138px}.stepper input{width:46px}.platform-option{align-items:center}.summary{padding:24px}.terms-details summary{min-height:60px}}
+
+</style>
+</head>
+<body>
+  <a class="skip" href="#calculator">Перейти к расчёту</a>
+  <header class="header wrap">
+    <a class="wordmark" href="#top" aria-label="FITBEE — начало страницы">FITBEE<span class="wordmark-dot"></span></a>
+    <span class="header-caption">Расчёт стоимости</span>
+    <a class="nav-link" href="#calculator">Рассчитать проект <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-main">
+        <p class="eyebrow">FITBEE / Фото и видео</p>
+        <h1 id="hero-title">Расчёт <span>стоимости</span></h1>
+        <p class="hero-copy">Каталожные и имиджевые фотографии, каталожные видео и брендовый ролик. Ставки, состав работ и условия производства.</p>
+      </div>
+    </section>
+    <section class="estimate wrap" id="calculator" aria-labelledby="estimate-title">
+      <div class="estimate-main">
+        <h2 id="estimate-title">Интерактивная смета</h2>
+        <p class="section-intro">Введите количество в выделенные поля или используйте кнопки − и +. Суммы пересчитываются автоматически.</p>
+        <noscript><p class="notice">Для пересчёта включите JavaScript. Стартовый расчёт: 215 000 ₽ на платформах исполнителя.</p></noscript>
+        <div class="price-list" aria-label="Количество материалов и цены">
+          <div class="list-head" aria-hidden="true"><span>Материал</span><span>Количество · изменить</span><span>Сумма</span></div>
+          <article class="price-row" data-row="catalogPhoto">
+            <div class="material"><h3>Каталожная фотография</h3><p>Ретушь и улучшение качества включены</p><span class="unit-price">950 ₽ / кадр</span></div>
+            <div class="stepper"><button type="button" data-key="catalogPhoto" data-step="-1" aria-label="Уменьшить количество каталожных фото">−</button><input id="catalogPhoto" aria-label="Количество каталожных фотографий" type="number" inputmode="numeric" min="0" max="10000" step="1" value="100"><button type="button" data-key="catalogPhoto" data-step="1" aria-label="Увеличить количество каталожных фото">+</button><span class="print-count" data-print="catalogPhoto">100</span></div>
+            <output class="row-total" data-total="catalogPhoto" for="catalogPhoto">95 000 ₽</output>
+          </article>
+          <article class="price-row" data-row="campaignPhoto">
+            <div class="material"><h3>Имиджевая фотография</h3><p>Композиция, свет, ретушь и улучшение качества</p><span class="unit-price">1 250 ₽ / кадр</span></div>
+            <div class="stepper"><button type="button" data-key="campaignPhoto" data-step="-1" aria-label="Уменьшить количество имиджевых фото">−</button><input id="campaignPhoto" aria-label="Количество имиджевых фотографий" type="number" inputmode="numeric" min="0" max="10000" step="1" value="30"><button type="button" data-key="campaignPhoto" data-step="1" aria-label="Увеличить количество имиджевых фото">+</button><span class="print-count" data-print="campaignPhoto">30</span></div>
+            <output class="row-total" data-total="campaignPhoto" for="campaignPhoto">37 500 ₽</output>
+          </article>
+          <article class="price-row" data-row="catalogVideo">
+            <div class="material"><h3>Каталожное видео <span class="duration">до 10 сек.</span></h3><p>Полный цикл разработки ролика</p><span class="unit-price">2 500 ₽ / ролик</span></div>
+            <div class="stepper"><button type="button" data-key="catalogVideo" data-step="-1" aria-label="Уменьшить количество каталожных видео">−</button><input id="catalogVideo" aria-label="Количество каталожных видео" type="number" inputmode="numeric" min="0" max="10000" step="1" value="16"><button type="button" data-key="catalogVideo" data-step="1" aria-label="Увеличить количество каталожных видео">+</button><span class="print-count" data-print="catalogVideo">16</span></div>
+            <output class="row-total" data-total="catalogVideo" for="catalogVideo">40 000 ₽</output>
+          </article>
+          <article class="price-row" data-row="brandVideo">
+            <div class="material"><h3>Брендовый ролик <span class="duration">до 30 сек.</span></h3><p>От концепции и сценария до монтажа и звука</p><span class="unit-price">10 000 ₽ / ролик</span></div>
+            <div class="stepper"><button type="button" data-key="brandVideo" data-step="-1" aria-label="Уменьшить количество брендовых роликов">−</button><input id="brandVideo" aria-label="Количество брендовых роликов" type="number" inputmode="numeric" min="0" max="10000" step="1" value="1"><button type="button" data-key="brandVideo" data-step="1" aria-label="Увеличить количество брендовых роликов">+</button><span class="print-count" data-print="brandVideo">1</span></div>
+            <output class="row-total" data-total="brandVideo" for="brandVideo">10 000 ₽</output>
+          </article>
+          <article class="preparation-row"><div><h3>Подготовка проекта</h3><p>Локации, изделия на манекенах и две AI-модели</p></div><span class="fixed-label">На весь проект</span><strong>13 000 ₽</strong></article>
+        </div>
+        <fieldset class="platforms">
+          <legend>Где создаём материалы</legend>
+          <label class="platform-option selected"><input type="radio" name="platform" value="executor" checked><span><strong>Платформы исполнителя</strong><small>Оплаченные сервисы для производства проекта</small></span><b>+19 500 ₽</b></label>
+          <label class="platform-option"><input type="radio" name="platform" value="client"><span><strong>Оплаченные платформы заказчика</strong><small>Вы предоставляете доступ и достаточный баланс</small></span><b>+0 ₽</b></label>
+        </fieldset>
+        <p class="small-copy">Подходящие платформы согласуем до начала работ. При изменении объёма уточняются сроки и необходимые ресурсы производства.</p>
+      </div>
+      <aside class="summary" aria-labelledby="summary-title">
+        <div class="summary-heading"><span class="eyebrow">Ваш расчёт</span><span class="live-mark">Обновляется сразу</span></div>
+        <h3 id="summary-title">Стоимость проекта</h3>
+        <dl class="summary-lines summary-items">
+          <div><dt>Каталожные фото <small id="summary-catalogPhoto-count">100 × 950 ₽</small></dt><dd data-summary-total="catalogPhoto">95 000 ₽</dd></div>
+          <div><dt>Имиджевые фото <small id="summary-campaignPhoto-count">30 × 1 250 ₽</small></dt><dd data-summary-total="campaignPhoto">37 500 ₽</dd></div>
+          <div><dt>Каталожные видео <small id="summary-catalogVideo-count">16 × 2 500 ₽</small></dt><dd data-summary-total="catalogVideo">40 000 ₽</dd></div>
+          <div><dt>Брендовый ролик <small id="summary-brandVideo-count">1 × 10 000 ₽</small></dt><dd data-summary-total="brandVideo">10 000 ₽</dd></div>
+        </dl>
+        <div class="summary-divider"></div>
+        <dl class="summary-lines cost-lines"><div><dt>Подготовка</dt><dd>13 000 ₽</dd></div><div><dt>Платформы</dt><dd id="platform-total">19 500 ₽</dd></div></dl>
+        <div class="grand-total"><span>Стоимость проекта</span><output id="grand-total" aria-live="polite" aria-atomic="true">215 000 ₽</output></div>
+        <p id="platform-explanation" class="summary-note">Использование платформ исполнителя включено в итог.</p>
+        <p id="empty-note" class="summary-note" hidden>Материалы не выбраны. Подготовка и выбранный вариант платформ остаются в расчёте.</p>
+        <button type="button" class="button print-button" id="print-button">Сохранить расчёт в PDF <span aria-hidden="true">↗</span></button>
+        <button type="button" class="reset-button" id="reset-button">Вернуть стартовый состав</button>
+        <p class="print-help">Откроется окно печати — выберите «Сохранить как PDF».</p>
+        <span class="print-platform" id="print-platform">Платформы исполнителя</span>
+      </aside>
+    </section>
+    <section class="scope wrap" id="scope" aria-labelledby="scope-title">
+      <div class="section-heading"><div><h2 id="scope-title">Что входит в стоимость</h2><p class="disclosure-help">Нажмите на строку, чтобы раскрыть состав работ.</p></div><button class="text-button" type="button" id="expand-button" aria-expanded="false">Раскрыть все разделы <span aria-hidden="true">+</span></button></div>
+      <div class="scope-list">
+        <details open><summary><span>Подготовка проекта</span><span class="detail-price">13 000 ₽ / проект</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Разработка визуального направления на основе ТЗ и референсов. Подготовка и согласование локаций, света и стилистики.</p><ul><li>Создание двух постоянных AI-моделей, доработка внешности и карты моделей с разных сторон.</li><li>Изображения согласованных изделий на манекенах в необходимых ракурсах.</li><li>Тестовые генерации для проверки внешности, конструкции одежды и визуальной подачи.</li></ul><p>Утверждённые материалы становятся общей базой для фотографий и видео.</p></div></details>
+        <details><summary><span>Каталожные фотографии</span><span class="detail-price">950 ₽ / кадр</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Финальный кадр изделия на AI-модели на согласованном фоне. Ракурсы: анфас, спина, бок, три четверти или деталь — по задаче конкретного изделия.</p><p>Включены генерация и отбор, ретушь, коррекция выявленных визуальных дефектов, цветокоррекция и улучшение качества — апскейл.</p></div></details>
+        <details><summary><span>Имиджевые фотографии</span><span class="detail-price">1 250 ₽ / кадр</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Кампейн-кадр в согласованной локации с разработанной композицией, светом, действием модели и стилизацией.</p><p>Включены генерация и отбор, ретушь, коррекция выявленных визуальных дефектов, цветокоррекция и улучшение качества — апскейл.</p></div></details>
+        <details><summary><span>Каталожные видео <em>до 10 секунд</em></span><span class="detail-price">2 500 ₽ / ролик</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Короткое видео одного изделия в одном цвете, показывающее посадку, детали и поведение ткани в движении.</p><p>Полный цикл: сценарий, раскадровка, создание исходных сцен и видеогенераций, отбор материала, монтаж, цветовое согласование, музыкальный ряд, саунд-дизайн, интеграция логотипа при необходимости и финальный экспорт.</p><p>Все этапы согласуются с заказчиком: сценарий → раскадровка и сцены → видеоматериал → монтаж и звук.</p></div></details>
+        <details><summary><span>Брендовый ролик <em>до 30 секунд</em></span><span class="detail-price">10 000 ₽ / ролик</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Имиджевый ролик, передающий эстетику, характер и позиционирование бренда.</p><p>Включены концепция и сценарий, раскадровка, создание исходных сцен и видеогенераций, отбор материала, монтаж, цветовое согласование, музыкальный ряд, саунд-дизайн, интеграция логотипа и финальный экспорт.</p><p>Количество сцен и сложность действий фиксируются до начала производства. Все этапы разработки согласуются с заказчиком.</p></div></details>
+      </div>
+    </section>
+    <section class="process-section" aria-labelledby="process-title"><div class="wrap">
+      <div class="process-header"><div><h2 id="process-title">Производство и согласования</h2></div><div class="project-duration"><strong>≈ 3 недели</strong><span>На весь проект, включая согласования<br>и предусмотренные правки</span></div></div>
+      <div class="process-flow"><article class="phase prep-phase"><span class="phase-label">Подготовка · около 5 дней</span><h3>Подготовка проекта</h3><p>Ассортимент и цвета, две AI-модели, изделия на манекенах, локации, свет и тестовые кадры.</p><span class="phase-outcome">Утверждённая база для всей серии</span></article><div class="parallel-phases"><article class="phase"><span class="phase-label">Фотографии</span><h3>Работа над фотографиями</h3><p>Генерация, отбор, ретушь, цветокоррекция и улучшение качества.</p><span class="phase-outcome">2 круга правок</span></article><article class="phase"><span class="phase-label">Видео · параллельно с фото</span><h3>Работа над видео</h3><p>Сценарий и раскадровка, сцены, видеогенерации, монтаж и звук. Каждый этап согласуется.</p><span class="phase-outcome">1 круг правок</span></article></div></div>
+      <p class="process-foot">Точный график уточняется после утверждения объёма. Дополнительные работы и продолжительные паузы в согласованиях могут повлиять на дату завершения.</p>
+    </div></section>
+    <section class="terms wrap" aria-labelledby="terms-title"><div class="section-heading"><div><h2 id="terms-title">Условия и передача материалов</h2></div><p class="heading-note">Финальные материалы и систематизированная визуальная база для продолжения проекта.</p></div>
+      <div class="terms-grid"><article><h3>Финальные материалы</h3><ul><li>Каталожные и имиджевые фотографии с ретушью и улучшением качества.</li><li>Каталожные видео до 10 секунд и брендовый ролик до 30 секунд.</li><li>Дополнительные версии, если они включены в согласованный объём.</li></ul></article><article><h3>Подготовленные исходники</h3><ul><li>Утверждённые изображения изделий на манекенах с разных сторон.</li><li>Карты AI-моделей: анфас, профиль, три четверти, вид сзади и согласованный полный рост.</li><li>Утверждённые локации и визуальные референсы, созданные для проекта.</li><li>Сценарии, раскадровки, исходные изображения сцен и отобранные видеогенерации.</li><li>Промпты и доступные настройки, включая seed, если платформа его предоставляет.</li></ul></article></div>
+      <div class="terms-details">
+        <details><summary><span>Правки и изменения задания</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p><strong>Фото — два консолидированных круга правок. Видео — один.</strong> Один круг — единый собранный список комментариев к переданным на согласование материалам.</p><p>Правки выполняются в рамках утверждённого задания. Изменение модели, изделия, концепции, локации или сценария после согласования оценивается отдельно. Исправление несоответствий согласованному заданию не относится к расширению объёма работ.</p><p>Стоимость дополнительных кругов правок фиксируется перед началом работ.</p></div></details>
+        <details><summary><span>Использование исходников</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Исходники систематизируются по моделям, изделиям и этапам. Неудачные, бракованные и отклонённые технические пробы в стандартный комплект не входят.</p><p>Карты моделей, изображения изделий и локаций помогают сохранять согласованную внешность, конструкцию одежды и стилистику при дальнейшей работе.</p><p>Промпты и параметры не являются автоматическим способом точного воспроизведения финальных кадров. Результат зависит от референсов, версии и настроек сервиса, последовательности генераций, отбора, ретуши и монтажа.</p><p>Передача исходников позволяет продолжать проект, но не гарантирует идентичный результат одним повторным запуском. Обучение сотрудников заказчика и отдельная производственная методика в стоимость не включены.</p></div></details>
+        <details><summary><span>Права и эксклюзивность</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Условия передачи прав, коммерческого использования материалов, состав исходников и эксклюзивность AI-моделей фиксируются в договоре с учётом условий используемых сервисов.</p><p>Созданные для FITBEE AI-модели не используются исполнителем для других клиентов.</p></div></details>
+        <details><summary><span>Платформы и инструменты</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Планируемые инструменты для фотографий и визуальных референсов — <strong>GPT Image 2 и Nano Banana Pro</strong>. Для видео — <strong>Kling или Seedance 2.5</strong>, в зависимости от сцены.</p><p><strong>Платформы исполнителя:</strong> 19 500 ₽ на использование оплаченных сервисов включаются в расчёт проекта.</p><p><strong>Оплаченные платформы заказчика:</strong> заказчик предоставляет доступ к подходящим платформам с нужными моделями, функциями и достаточным балансом. Статья 19 500 ₽ исключается. Оплату и пополнение баланса заказчик осуществляет напрямую. Подходящие платформы согласуются до начала производства.</p></div></details>
+        <details><summary><span>Reels, дополнительные материалы и оплата</span><span class="disclosure-cue" aria-hidden="true">Подробнее</span></summary><div class="detail-body"><p>Короткие reels рассчитываются отдельно после согласования количества, длительности и формата: монтажные версии брендового ролика или самостоятельные видео. В текущую смету reels не включены.</p><p>Дополнительные фотографии и каталожные видео можно добавить в калькулятор по указанным ставкам. При изменении объёма уточняются сроки и необходимые ресурсы производства.</p><p>Порядок оплаты фиксируется перед началом работ.</p></div></details>
+      </div>
+    </section>
+    <section class="closing wrap"><p>Сохранить расчёт можно в разделе сметы.</p><a class="button primary" href="#calculator">Вернуться к смете <span aria-hidden="true">↑</span></a></section>
+  </main>
+  <footer class="footer wrap"><a class="wordmark" href="#top">FITBEE<span class="wordmark-dot"></span></a><p>AI-каталог и имиджевая кампания</p><span>Состав и условия подтверждаются перед началом работ.</span></footer>
+<script>
+(function (root) {
+  'use strict';
+  const defaults = Object.freeze({ catalogPhoto: 100, campaignPhoto: 30, catalogVideo: 16, brandVideo: 1 });
+  const rates = Object.freeze({ catalogPhoto: 950, campaignPhoto: 1250, catalogVideo: 2500, brandVideo: 10000 });
+  const limit = 10000;
+  function normalize(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? Math.min(limit, Math.max(0, Math.floor(number))) : 0;
+  }
+  function calculate(quantities, platform) {
+    const counts = {}, lines = {};
+    let materials = 0;
+    for (const key of Object.keys(defaults)) {
+      counts[key] = normalize(quantities[key]);
+      lines[key] = counts[key] * rates[key];
+      materials += lines[key];
+    }
+    const preparation = 13000;
+    const platforms = platform === 'client' ? 0 : 19500;
+    return { counts, lines, materials, preparation, platforms, work: materials + preparation, total: materials + preparation + platforms };
+  }
+  const api = Object.freeze({ defaults, rates, limit, normalize, calculate });
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.FitbeePricing = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const api = window.FitbeePricing;
+  const keys = Object.keys(api.defaults);
+  const inputs = Object.fromEntries(keys.map(key => [key, document.getElementById(key)]));
+  const money = number => new Intl.NumberFormat('ru-RU').format(number) + ' ₽';
+  const countLabel = (n, forms) => {
+    const end = n % 100;
+    const word = end >= 11 && end <= 14 ? forms[2] : n % 10 === 1 ? forms[0] : n % 10 >= 2 && n % 10 <= 4 ? forms[1] : forms[2];
+    return new Intl.NumberFormat('ru-RU').format(n) + ' ' + word;
+  };
+  const storageKey = 'fitbee-proposal-v1';
+  function getState() {
+    return { quantities: Object.fromEntries(keys.map(key => [key, inputs[key].value])), platform: document.querySelector('input[name="platform"]:checked').value };
+  }
+  function update() {
+    const state = getState();
+    const result = api.calculate(state.quantities, state.platform);
+    for (const key of keys) {
+      document.querySelector('[data-total="' + key + '"]').textContent = money(result.lines[key]);
+      document.querySelector('[data-print="' + key + '"]').textContent = result.counts[key];
+      document.querySelector('[data-key="' + key + '"][data-step="-1"]').disabled = result.counts[key] === 0;
+      document.querySelector('[data-key="' + key + '"][data-step="1"]').disabled = result.counts[key] === api.limit;
+    }
+    keys.forEach(key => {
+      document.getElementById('summary-' + key + '-count').textContent = result.counts[key] + ' × ' + money(api.rates[key]);
+      document.querySelector('[data-summary-total="' + key + '"]').textContent = money(result.lines[key]);
+    });
+    document.getElementById('platform-total').textContent = money(result.platforms);
+    document.getElementById('grand-total').textContent = money(result.total);
+    document.getElementById('platform-explanation').textContent = state.platform === 'client' ? 'Платформы и баланс заказчик оплачивает напрямую. В смету исполнителя они не входят.' : 'Использование платформ исполнителя включено в итог.';
+    document.getElementById('print-platform').textContent = state.platform === 'client' ? 'Оплаченные платформы заказчика' : 'Платформы исполнителя';
+    document.getElementById('empty-note').hidden = result.materials !== 0;
+    document.querySelectorAll('.platform-option').forEach(label => label.classList.toggle('selected', label.querySelector('input').checked));
+    try { localStorage.setItem(storageKey, JSON.stringify({ quantities: result.counts, platform: state.platform })); } catch (_) { /* The calculator also works without storage. */ }
+  }
+  keys.forEach(key => {
+    inputs[key].addEventListener('input', update);
+    inputs[key].addEventListener('change', () => { inputs[key].value = api.normalize(inputs[key].value); update(); });
+    inputs[key].addEventListener('blur', () => { inputs[key].value = api.normalize(inputs[key].value); update(); });
+    inputs[key].addEventListener('keydown', event => { if (['e', 'E', '+', '-', '.', ','].includes(event.key)) event.preventDefault(); });
+  });
+  document.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => {
+    const key = button.dataset.key;
+    inputs[key].value = api.normalize(api.normalize(inputs[key].value) + Number(button.dataset.step));
+    update();
+  }));
+  document.querySelectorAll('input[name="platform"]').forEach(input => input.addEventListener('change', update));
+  document.getElementById('reset-button').addEventListener('click', () => {
+    keys.forEach(key => { inputs[key].value = api.defaults[key]; });
+    document.querySelector('input[name="platform"][value="executor"]').checked = true;
+    update();
+  });
+  const allDetails = Array.from(document.querySelectorAll('details'));
+  const expandButton = document.getElementById('expand-button');
+  expandButton.addEventListener('click', () => {
+    const open = !allDetails.every(detail => detail.open);
+    allDetails.forEach(detail => { detail.open = open; });
+    syncExpand();
+  });
+  function syncExpand() {
+    const open = allDetails.every(detail => detail.open);
+    expandButton.setAttribute('aria-expanded', String(open));
+    expandButton.innerHTML = open ? 'Свернуть разделы <span aria-hidden="true">−</span>' : 'Раскрыть все разделы <span aria-hidden="true">+</span>';
+  }
+  allDetails.forEach(detail => detail.addEventListener('toggle', syncExpand));
+  let savedDetails = null;
+  function preparePrint() {
+    keys.forEach(key => { inputs[key].value = api.normalize(inputs[key].value); });
+    update();
+    if (!savedDetails) savedDetails = allDetails.map(detail => detail.open);
+    allDetails.forEach(detail => { detail.open = true; });
+  }
+  window.addEventListener('beforeprint', preparePrint);
+  window.addEventListener('afterprint', () => {
+    if (savedDetails) allDetails.forEach((detail, index) => { detail.open = savedDetails[index]; });
+    savedDetails = null;
+    syncExpand();
+  });
+  document.getElementById('print-button').addEventListener('click', () => { preparePrint(); window.print(); });
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (saved && saved.quantities) {
+      keys.forEach(key => { inputs[key].value = api.normalize(saved.quantities[key] === undefined ? api.defaults[key] : saved.quantities[key]); });
+      if (saved.platform === 'client') document.querySelector('input[name="platform"][value="client"]').checked = true;
+    }
+  } catch (_) { /* Invalid or unavailable saved data falls back to defaults. */ }
+  update();
+})();
+
+</script>
+</body>
+</html>
